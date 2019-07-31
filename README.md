@@ -50,7 +50,7 @@ matplot(grid,t(P),xlab="x",type="l",ylab="",col=col,main="Distiburion Images",ce
 scatterplot3d(Theta[,order(abs(eigen_value),decreasing=T)[1:3]],color=col,angle=70,xlab="Theta1",ylab="Theta2",zlab="Theta3",tick.marks=FALSE,cex.lab=2,cex.main=4,pch=16)
 
 #Visualiza the reconstructed distribution
-matplot(grid,t(P_est),xlab="x",type="l",ylab="",col=col,main="Reconstructed Distributions",cex.lab=2,cex.main=4,cex.axis=2,yaxt="n")
+matplot(grid,t(P_est),xlab="x",type="l",ylab="",col=col,main="Reconstructed",cex.lab=2,cex.main=4,cex.axis=2,yaxt="n")
 ```
 
 ### Check F and C
