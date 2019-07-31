@@ -52,7 +52,7 @@ scatterplot3d(Theta[,order(abs(eigen_value),decreasing=T)[1:3]],color=col,angle=
 matplot(grid,t(P_est),xlab="x",type="l",ylab="",col=col,main="Reconstructed Distributions",cex.lab=2,cex.main=4,cex.axis=2,yaxt="n")
 ```
 
-### Ckeck F and C
+### Check F and C
 ```{r}
 Ft <- cbind(t(Fx)[,order(abs(eigen_value),decreasing=T)[1:3]],Cx)
 labels <- c("F1","F2","F3","Cx")
