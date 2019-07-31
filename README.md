@@ -9,7 +9,7 @@ MASS (>= 7.3.50)
 
 ## Install
 ```{r}
-install.packages("devtools"")
+install.packages("devtools")
 devtools::install_github("DaigoOkada/deef")
 ```
 
