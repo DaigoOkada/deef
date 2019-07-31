@@ -17,6 +17,7 @@ devtools::install_github("DaigoOkada/deef")
 
 ### Apply DEEF to normal distribution set
 ```{r}
+library(deef)
 P <- Distset2D$P
 ip_mat <- Distset2D$ip_mat
 result <- DEEF(Distset2D$P,Distset2D$ip_mat)
