@@ -1,0 +1,15 @@
+Package: deef
+Type: Package
+Title: Decomposition into Extenden Exponential Family in R
+Version: 0.1.0
+Author: Daigo Okada
+Maintainer: Daigo Okada <dokada@genome.med.kyoto-u.ac.jp>
+Description: This packages conduct decomposition into Extended Exponential Family (DEEF).
+    This statistical method is described in our research paper titled "Decomposition of arbitrary sets of distributions in
+    extended exponential family form for distinguishing multiple expression profiles of single-cell populations and visualizing their dynamics".
+Imports:
+    MASS (>= 7.3.50)
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
