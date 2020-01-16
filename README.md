@@ -2,7 +2,8 @@ deef - Decomposition into Extended Exponential Family in R
 ====
 
 ## Description
-This R packages conduct decomposition into Extended Exponential Family (DEEF).This statistical method is described in our research paper titled "Decomposition of arbitrary sets of distributions inextended exponential family form for distinguishing multiple expression profiles of single-cell populations and visualizing their dynamics".
+This R packages conduct decomposition into Extended Exponential Family (DEEF).This statistical method is described in our research paper titled "Decomposition of arbitrary sets of distributions inextended exponential family form for distinguishing multiple expression profiles of single-cell populations and visualizing their dynamics".We will update the documentation on the application of this package.
+
 
 ## Requirement
 MASS (>= 7.3.50)
