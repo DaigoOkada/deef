@@ -12,10 +12,19 @@ DEEF(disP, ip_mat = NULL)
 \item{ip_mat}{optional. if sample by sample matrix are given, it is used as innerproduct matrix.}
 }
 \value{
-list that contains eigenvalue,Theta,Cx,Fx
+The object is a list with components of Extended Exponential Family formula:
+
+\item{eigenvalue}{the vector of eigenvalues of the decomposition. the length is the number of samples.}
+
+\item{Theta}{The matrix of Theta coordinate values. Theta[i,j] represents i-th sample's j-th theta coordinate value.}
+
+\item{Cx}{the vector of C(x). the length is the number of samples.}
+
+\item{Fx}{The matrix of F values. Fx[i,] represents Fi vector.}
 }
 \description{
-This Function is to conduct DEEF method
+This Function is to conduct DEEF method.
+Taking probability matrix and inner priduct matrix (optional), it calculates the log-liear decomposition and return the Extended exponential formula.
 }
 \examples{
 
