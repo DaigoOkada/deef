@@ -17,6 +17,10 @@ devtools::install_github("DaigoOkada/deef")
 ## Overview
 
 ### Apply DEEF to normal distribution set
+
+First, we applied DEEF to the Normal distribution set of 900 normal distributions with the different mean and sd.
+This distribution set is the sampe example of the article and available as built-in dataset Distset2D.
+
 ```{r}
 library(deef)
 P <- Distset2D$P
@@ -29,6 +33,9 @@ Cx <- result$Cx
 ```
 
 ### Reconstruction using top three coordinates
+
+dist_repro fucntion reconstracte the distribution set using the output of DEEF function.
+
 ```{r}
 P_est <- dist_repro(eigenvalue,Theta,Cx,Fx, K=3)
 ```
