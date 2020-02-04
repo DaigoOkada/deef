@@ -77,18 +77,18 @@ The following code is the sample code to create matrix P from GvHD dataset which
 The detail  of the methodology is written in our article.
 
 ```{r}
-#Apply DEEF to normal distribution set
+#Preproseccing of the cytometry data
 library(flowCore)
 library(TDA)
 data(GvHD)
 n <- length(GvHD)
 expr_list <- list()
 for(i in 1:n){
-  samp <- GvHD[[i]]## User defined logicle functionl
+  samp <- GvHD[[i]]
   expr_list[[i]] <- asinh(samp@exprs[,c('FL1-H','FL2-H')])
 }
 
-#the num of marker(d)=2,the num of grids (m)=20
+#the num of marker(d)=2,the num of grids (m)=100
 d <- 2
 m <- 100
 min_list <- lapply(1:d,function(x){NULL})
@@ -109,7 +109,7 @@ for(j in 1:d){
   seq_list[[j]] <- seq(from=total_min,to=total_max,length=m)
 }
 
-#Geberate Grid
+#Generate Grid matrix
 code <- "x_grid <- expand.grid("
 for(i in 1:d){
   if(i != d) code <- paste0(code,"seq_list[[",i,"]],")
