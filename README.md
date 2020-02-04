@@ -70,6 +70,62 @@ matplot(seq(from=0,to=1,length=1000),Ft,col=cols,type="l",lty="solid",xlab="",ma
 legend("topright", legend = labels, col = cols, lty = "solid",ncol = 1)
 ```
 
+### Create Probability matrix P from cytometry dataset.
+In application of DEEF to cytometry dataset amalysis, Probability matrix P have to be created with the deciding the grids and 
+k-nearest neighbor estimation of the probability values of the grids.
+The following code is the sample code to create matrix P from GvHD dataset which contain 35 cytometry samples, with the setting that the number of markers (d) is 2, the number of grid for each marker is 100 and alpha parameter (contorolling the range) is 0.15.
+The detail  of the methodology is written in our article.
+
+```{r}
+#Apply DEEF to normal distribution set
+library(flowCore)
+library(TDA)
+data(GvHD)
+n <- length(GvHD)
+expr_list <- list()
+for(i in 1:n){
+  samp <- GvHD[[i]]## User defined logicle functionl
+  expr_list[[i]] <- asinh(samp@exprs[,c('FL1-H','FL2-H')])
+}
+
+#the num of marker(d)=2,the num of grids (m)=20
+d <- 2
+m <- 100
+min_list <- lapply(1:d,function(x){NULL})
+max_list <- lapply(1:d,function(x){NULL})
+alpha <- 0.15
+for(i in 1:n){
+  expr <- expr_list[[i]]
+  for(j in 1:d){
+    min_list[[j]] <- c(min_list[[j]],quantile(expr[,j],alpha))
+    max_list[[j]] <- c(max_list[[j]],quantile(expr[,j],1-alpha))
+  }
+}
+
+seq_list <- list()
+for(j in 1:d){
+  total_min <- min(min_list[[j]])
+  total_max <- max(max_list[[j]])
+  seq_list[[j]] <- seq(from=total_min,to=total_max,length=m)
+}
+
+#Geberate Grid
+code <- "x_grid <- expand.grid("
+for(i in 1:d){
+  if(i != d) code <- paste0(code,"seq_list[[",i,"]],")
+  if(i == d) code <- paste0(code,"seq_list[[",i,"]])")
+}
+eval(parse(text=code))
+
+#knn estimate and generate P
+P <- matrix(NA,n,m^d)
+for(i in 1:n){
+  expr <- expr_list[[i]]
+  knni <- knnDE(expr, x_grid, k=100)
+  P[i,] <- knni/sum(knni)
+}
+```
+
 ## Licence
 GPL-2
 
