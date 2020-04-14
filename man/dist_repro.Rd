@@ -24,6 +24,6 @@ samply by grid  reconstructed probability matrix
 This Function is to reconstruct distribution set from the output of DEEF
 }
 \examples{
-
+# See the tutorial document at "https://github.com/DaigoOkada/deef"
 }
 \keyword{NA}
