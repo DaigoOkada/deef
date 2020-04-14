@@ -78,8 +78,8 @@ The detail  of the methodology is written in our article.
 
 ```{r}
 #Preproseccing of the cytometry data
-library(flowCore)
-library(TDA)
+library(flowCore) #install from bioconducter
+library(TDA) #install from CRAN
 data(GvHD)
 n <- length(GvHD)
 expr_list <- list()
