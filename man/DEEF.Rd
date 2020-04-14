@@ -27,6 +27,6 @@ This Function is to conduct DEEF method.
 Taking probability matrix and inner priduct matrix (optional), it calculates the log-liear decomposition and return the Extended exponential formula.
 }
 \examples{
-
+## See the tutorial document at "https://github.com/DaigoOkada/deef"
 }
 \keyword{NA}
