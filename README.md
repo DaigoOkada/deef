@@ -55,7 +55,7 @@ plot(mu_sd,xlab="mean",ylab="sd",col=col,main="Original Parameters",cex.lab=2,ce
 matplot(grid,t(P),xlab="x",type="l",ylab="",col=col,main="Distiburion Images",cex.lab=2,cex.main=4,cex.axis=2,yaxt="n")
 
 #Visualiza Theta coordinate system
-scatterplot3d(Theta[,order(abs(eigen_value),decreasing=T)[1:3]],color=col,angle=70,xlab="Theta1",ylab="Theta2",zlab="Theta3",tick.marks=FALSE,cex.lab=2,cex.main=4,pch=16)
+scatterplot3d(Theta[,order(abs(eigen_value),decreasing=T)[1:3]],color=col,angle=70,xlab="Theta_last",ylab="Theta1",zlab="Theta2",tick.marks=FALSE,cex.lab=2,cex.main=4,pch=16)
 
 #Visualiza the reconstructed distribution
 matplot(grid,t(P_est),xlab="x",type="l",ylab="",col=col,main="Reconstructed",cex.lab=2,cex.main=4,cex.axis=2,yaxt="n")
@@ -64,7 +64,7 @@ matplot(grid,t(P_est),xlab="x",type="l",ylab="",col=col,main="Reconstructed",cex
 ### Check F and C
 ```{r}
 Ft <- cbind(t(Fx)[,order(abs(eigen_value),decreasing=T)[1:3]],Cx)
-labels <- c("F1","F2","F3","Cx")
+labels <- c("F_last","F1","F2","Cx")
 cols <- c("red","blue","purple","black")
 matplot(seq(from=0,to=1,length=1000),Ft,col=cols,type="l",lty="solid",xlab="",main="1D",cex.main=2,xaxp=c(0, 1, 1),ylab="")
 legend("topright", legend = labels, col = cols, lty = "solid",ncol = 1)
